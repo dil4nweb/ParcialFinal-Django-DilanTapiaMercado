@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+{% block contenido %}
+<h2>Registrar programa académico</h2><p>Completa los datos del programa. Registros actuales: <strong>{{ total }}</strong></p>
+{% for message in messages %}<div class="mensaje">{{ message }}</div>{% endfor %}
+<form method="post">{% csrf_token %}{{ form.non_field_errors }}
+<label for="{{ form.codigo.id_for_label }}">Código</label>{{ form.codigo }}{{ form.codigo.errors }}
+<label for="{{ form.nombre.id_for_label }}">Nombre del programa</label>{{ form.nombre }}{{ form.nombre.errors }}
+<label for="{{ form.facultad.id_for_label }}">Facultad</label>{{ form.facultad }}{{ form.facultad.errors }}
+<label for="{{ form.estado.id_for_label }}">{{ form.estado }} Estado activo</label>{{ form.estado.errors }}
+<button type="submit">Guardar programa</button></form>
+{% endblock %}
